@@ -1,11 +1,17 @@
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, IsOptional, ValidateNested } from "class-validator";
+import {
+  IsDate,
+  IsInt,
+  IsOptional,
+  IsString,
+  ValidateNested,
+} from "class-validator";
 import { Type } from "class-transformer";
-import { Task } from "../../task/base/Task";
+import { Project } from "../../project/base/Project";
 import { User } from "../../user/base/User";
 @ObjectType()
-class Project {
+class Task {
   @ApiProperty({
     required: true,
   })
@@ -16,14 +22,14 @@ class Project {
 
   @ApiProperty({
     required: false,
-    type: String,
+    type: Number,
   })
-  @IsString()
+  @IsInt()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => Number, {
     nullable: true,
   })
-  description!: string | null;
+  estimation!: number | null;
 
   @ApiProperty({
     required: true,
@@ -35,6 +41,15 @@ class Project {
 
   @ApiProperty({
     required: false,
+    type: () => Project,
+  })
+  @ValidateNested()
+  @Type(() => Project)
+  @IsOptional()
+  project?: Project | null;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
@@ -42,27 +57,7 @@ class Project {
   @Field(() => String, {
     nullable: true,
   })
-  name!: string | null;
-
-  @ApiProperty({
-    required: false,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @IsOptional()
-  @Field(() => Date, {
-    nullable: true,
-  })
-  startDate!: Date | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => [Task],
-  })
-  @ValidateNested()
-  @Type(() => Task)
-  @IsOptional()
-  tasks?: Array<Task>;
+  title!: string | null;
 
   @ApiProperty({
     required: true,
@@ -73,11 +68,12 @@ class Project {
   updatedAt!: Date;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: () => User,
   })
   @ValidateNested()
   @Type(() => User)
-  user?: User;
+  @IsOptional()
+  user?: User | null;
 }
-export { Project };
+export { Task };
