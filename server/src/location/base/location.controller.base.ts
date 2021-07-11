@@ -59,6 +59,7 @@ export class LocationControllerBase {
     return await this.service.create({
       data: data,
       select: {
+        address: true,
         createdAt: true,
         id: true,
         name: true,
@@ -97,6 +98,7 @@ export class LocationControllerBase {
     const results = await this.service.findMany({
       ...args,
       select: {
+        address: true,
         createdAt: true,
         id: true,
         name: true,
@@ -130,6 +132,7 @@ export class LocationControllerBase {
     const result = await this.service.findOne({
       where: params,
       select: {
+        address: true,
         createdAt: true,
         id: true,
         name: true,
@@ -184,6 +187,7 @@ export class LocationControllerBase {
         where: params,
         data: data,
         select: {
+          address: true,
           createdAt: true,
           id: true,
           name: true,
@@ -218,6 +222,7 @@ export class LocationControllerBase {
       return await this.service.delete({
         where: params,
         select: {
+          address: true,
           createdAt: true,
           id: true,
           name: true,

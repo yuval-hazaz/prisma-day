@@ -5,6 +5,7 @@ export const LocationCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
+        <TextInput label="address" source="address" />
         <TextInput label="Name" source="name" />
       </SimpleForm>
     </Create>

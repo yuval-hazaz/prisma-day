@@ -1,10 +1,18 @@
 {
-  "dataServiceGeneratorVersion": "0.6.5",
+  "dataServiceGeneratorVersion": "0.7.0",
   "appInfo": {
     "name": "My app-2",
     "description": "",
-    "version": "ubiv651f",
+    "version": "khswzwv6",
     "id": "ckqidexgw7859101bs64bo3zf93",
-    "url": "https://app.amplication.com/ckqidexgw7859101bs64bo3zf93"
+    "url": "https://app.amplication.com/ckqidexgw7859101bs64bo3zf93",
+    "settings": {
+      "dbHost": "localhost",
+      "dbName": "my-db",
+      "dbPassword": "admin",
+      "dbPort": 5432,
+      "dbUser": "admin",
+      "appId": "ckqidexgw7859101bs64bo3zf93"
+    }
   }
 }
