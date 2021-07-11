@@ -5,6 +5,7 @@ export const LocationEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
+        <TextInput label="address" source="address" />
         <TextInput label="Name" source="name" />
       </SimpleForm>
     </Edit>

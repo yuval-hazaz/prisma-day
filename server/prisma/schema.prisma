@@ -48,6 +48,7 @@ model Task {
 }
 
 model Location {
+  address   String?
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   name      String?

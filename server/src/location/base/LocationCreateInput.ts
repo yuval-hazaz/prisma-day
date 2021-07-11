@@ -12,6 +12,17 @@ class LocationCreateInput {
   @Field(() => String, {
     nullable: true,
   })
+  address?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
   name?: string | null;
 }
 export { LocationCreateInput };
